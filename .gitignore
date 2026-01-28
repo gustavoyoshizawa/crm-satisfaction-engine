@@ -1,0 +1,17 @@
+
+### Conteúdo recomendado:
+```gitignore
+# Ambiente
+.env
+docker/.env
+
+# Python
+__pycache__/
+.venv/
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/

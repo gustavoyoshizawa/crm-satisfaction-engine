@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: crm-mysql
+    environment:
+      MYSQL_DATABASE: crm_db
+      MYSQL_USER: crm_user
+      MYSQL_PASSWORD: senha_aqui
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  etl:
+    build:
+      context: .. # 👈 raiz do projeto
+      dockerfile: docker/Dockerfile
+    container_name: crm-etl
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
