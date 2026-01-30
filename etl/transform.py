@@ -78,7 +78,7 @@ def calculate_score(metrics_df):
 # -------------------------
 def segment_customers(metrics_df):
 
-    # 1️⃣ Criar score ANTES de classificar
+    # Criar score ANTES de classificar
     metrics_df["dias_sem_resposta"] = metrics_df["dias_sem_resposta"].fillna(0)
 
     metrics_df["score"] = (
@@ -87,7 +87,7 @@ def segment_customers(metrics_df):
     )
 
 
-    # 2️⃣ Classificação baseada no score
+    # Classificação baseada no score
     def classify(row):
         if row["qtd_interacoes_abertas"] >= 2 or row["score"] >= 100:
             return "Crítico"

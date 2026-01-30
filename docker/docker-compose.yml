@@ -14,7 +14,7 @@ services:
 
   etl:
     build:
-      context: .. # 👈 raiz do projeto
+      context: ..
       dockerfile: docker/Dockerfile
     container_name: crm-etl
     env_file:
